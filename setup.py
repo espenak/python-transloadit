@@ -10,7 +10,6 @@ setup(name="transloadit",
       url="http://github.com/joestump/python-transloadit",
       packages = find_packages(),
       license = "MIT License",
-      install_requires=['simplejson>=2.1.6'],
       keywords="transloadit",
       zip_safe = True,
       tests_require=['nose', 'coverage'])

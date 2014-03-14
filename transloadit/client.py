@@ -12,9 +12,12 @@ except ImportError:
 
 
 try:
-    from django.utils import simplejson as json
-except ImportError:
+    # Should be (manually) installed if using Python 2.6 or older,
+    # or if you want the speedup for raw bytestrings provided by
+    # simplejson.
     import simplejson as json
+except ImportError:
+    import json # Works with python 2.7+
 
 
 BASE_API = 'http://api2.transloadit.com/assemblies'
