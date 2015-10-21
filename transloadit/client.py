@@ -48,7 +48,15 @@ class Client(object):
         req.endheaders()
         req.send(body)
         errcode, errmsg, headers = req.getreply()
-        return json.loads(req.file.read())
+        output = req.file.read()
+        print
+        print '*' * 70
+        print
+        print 'Transloadit output:', output
+        print
+        print '*' * 70
+        print
+        return json.loads(output)
 
     def _encode_request(self, fields, files):
         body = StringIO()
