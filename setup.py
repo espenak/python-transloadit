@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(name="transloadit",
-      version="0.0.3",
+      version="0.0.4",
       description="Library for interfacing with Transloadit's API",
       author="Joe Stump",
       author_email="joe@joestump.net",

@@ -54,6 +54,13 @@ class Client(object):
         except json.JSONDecodeError:
             # Workaround for https://github.com/joestump/python-transloadit/issues/5
             output = '{' + output.split('{', 1)[-1]
+            print
+            print '*' * 70
+            print
+            print 'Transloadit output:', output
+            print
+            print '*' * 70
+            print
             return json.loads(output)
 
 
