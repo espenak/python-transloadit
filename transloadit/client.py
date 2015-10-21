@@ -49,14 +49,13 @@ class Client(object):
         req.send(body)
         errcode, errmsg, headers = req.getreply()
         output = req.file.read()
-        print
-        print '*' * 70
-        print
-        print 'Transloadit output:', output
-        print
-        print '*' * 70
-        print
-        return json.loads(output)
+        try:
+            return json.loads(output)
+        except json.JSONDecodeError:
+            # Workaround for https://github.com/joestump/python-transloadit/issues/5
+            output = '{' + output.split('{', 1)[-1]
+            return json.loads(output)
+
 
     def _encode_request(self, fields, files):
         body = StringIO()
